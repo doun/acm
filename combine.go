@@ -46,7 +46,7 @@ func poj_1011() {
 	for i := 1; i < n; i++ {
 		Combine(n, i, func(got []int) bool {
 			if total-total/sum(got)*sum(got) == 0 {
-				for j:=0;j<n;j++{
+				for j := 0; j < n; j++ {
 					used[j] = false
 				}
 				return search(sum(got))
@@ -56,14 +56,67 @@ func poj_1011() {
 	}
 }
 
-func search(sum int)bool{
-	if left_sum() == sum{
+func search(sum int) bool {
+	if left_sum() == sum {
 		return true
 	}
-	return search(sum)
+	lastI := last_unused()
+	if lastI < 0 {
+		panic("last is -1")
+	}
+	used[lastI] = true
+	need := sum - sticks[lastI]
+	if !choose(need, func(got []int) bool {
+		set_used(got)
+		if !search(sum) {
+			set_unused(got)
+			return false
+		} else {
+			return true
+		}
+	}) {
+		return false
+	}
+	return true
 }
 
-func left_sum()int{
+func set_unused(st []int) {
+}
+
+func set_used(st []int) {
+
+}
+
+func choose(need int, fc func([]int) bool) bool {
+	max := max_index(need)
+	if max < 0 {
+		return false
+	}
+	if sticks[max]==need{
+		return fc(append([]int{},max))
+	}
+	return false
+}
+
+func max_index(nd int) int {
+	for i := n - 1; i >= 0; i-- {
+		if !used[i] && nd >= sticks[i] {
+			return nd
+		}
+	}
+	return -1
+}
+
+func last_unused() int {
+	for j := n - 1; j >= 0; j-- {
+		if !used[j] {
+			return j
+		}
+	}
+	return -1
+}
+
+func left_sum() int {
 	return 0
 }
 
