@@ -67,9 +67,9 @@ func search(sum int) bool {
 	used[lastI] = true
 	need := sum - sticks[lastI]
 	if !choose(need, func(got []int) bool {
-		set_used(got)
+		set_used(got, true)
 		if !search(sum) {
-			set_unused(got)
+			set_used(got, false)
 			return false
 		} else {
 			return true
@@ -80,11 +80,10 @@ func search(sum int) bool {
 	return true
 }
 
-func set_unused(st []int) {
-}
-
-func set_used(st []int) {
-
+func set_used(st []int, use bool) {
+	for _, i := range st {
+		used[i] = use
+	}
 }
 
 func choose(need int, fc func([]int) bool) bool {
@@ -92,10 +91,46 @@ func choose(need int, fc func([]int) bool) bool {
 	if max < 0 {
 		return false
 	}
-	if sticks[max]==need{
-		return fc(append([]int{},max))
+	if sticks[max] == need {
+		return fc(append([]int{}, max))
 	}
 	return false
+}
+
+func combine_unused(need int, last int, ff func([]int) bool) bool {
+	n := unused_until(last)
+	for m := 2; m < n; m++ {
+		if last_sum(last, m) < need {
+			continue
+		}else{
+
+		}
+	}
+	return false
+}
+
+func last_sum(start, n int) int {
+	ret := 0
+	k := 0
+	for i := start; i >= 0; i-- {
+		if !used[i] {
+			ret += sticks[i]
+			k++
+		}
+		if k == n {
+			break
+		}
+	}
+	return ret
+}
+
+func unused_until(last int) (ret int) {
+	for i := 0; i <= last; i++ {
+		if !used[i] {
+			ret++
+		}
+	}
+	return
 }
 
 func max_index(nd int) int {
@@ -118,22 +153,6 @@ func last_unused() int {
 
 func left_sum() int {
 	return 0
-}
-
-func CheckLen(length int) bool {
-	//先解决第一根，最长的一根
-	n := len(sticks)
-	need := length - sticks[n-1]
-	used[n-1] = true
-	Choose(need, func(got []int) bool {
-		return false
-	})
-	fmt.Print(used)
-	return false
-}
-
-func Choose(total int, c func(got []int) bool) {
-	used[0] = true
 }
 
 func Combine(n, m int, check func([]int) bool) {
