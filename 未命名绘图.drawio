@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-04T13:48:35.016Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36" etag="B-JDe4GRsZn0BBgNaVPa" version="13.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-04T13:48:58.688Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36" etag="V_75Pi0QJf4o9vU0EZPo" version="13.6.6" type="github">
   <diagram id="ZFhZQgNmcmeiBELyq5Xt" name="第 1 页">
     <mxGraphModel dx="655" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -70,7 +70,7 @@
         <mxCell id="pacg2PiQQ62NhaGQcg55-22" value="税金" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="pacg2PiQQ62NhaGQcg55-20">
           <mxGeometry y="104" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="pacg2PiQQ62NhaGQcg55-23" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="pacg2PiQQ62NhaGQcg55-20">
+        <mxCell id="pacg2PiQQ62NhaGQcg55-23" value="状态" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="pacg2PiQQ62NhaGQcg55-20">
           <mxGeometry y="130" width="140" height="26" as="geometry" />
         </mxCell>
       </root>
